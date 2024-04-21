@@ -213,11 +213,12 @@ void solve(Stack& stack, const vector< vector<bool> >& discs)
     for (auto disc : discs)
         disc_options.push_back(all_options(disc));
     vector< bool> disc_used(discs.size(), false);
-    for (vector< vector<bool>> options : disc_options)
+    /*for (vector< vector<bool>> options : disc_options)
     {
         cout<<"===================="<<endl;
         cout<<options<<endl;
     }
+    */
     solve_recursive(stack, discs, disc_options, disc_used);
 }
 
@@ -226,46 +227,19 @@ int main()
     vector< vector<bool> > discs= { 
         {0,1,0,1,1,1},
         {0,1,1,0,1,1},
-
         {0,0,0,1,0,1},
         {0,0,0,0,1,1},
         {0,0,0,0,0,0},
         {0,1,0,1,0,1},
-
         {0,0,0,1,1,1},
         {0,1,1,1,1,1},
         {0,0,1,0,1,1},
         {0,0,1,1,1,1},
-
         {0,0,0,0,0,1},
         {0,0,1,0,0,1},
         };
-   /*
-    vector< vector<bool> > discs= { 
-        {0,1,0,1,1,1},
-        {0,1,0,1,1,1},
-        {0,1,0,1,1,1},
-        {0,1,0,0,1,1},
-        {0,1,0,0,1,1},
-        {0,1,0,0,1,1},
-    };
-    */
-    
-    cout<< discs << endl;
-
+    //cout<< discs << endl;
     Stack stack((int)(discs.size()));
-    cout<<stack<<endl;
-    
-    /*
-    stack.push( discs[0]);
-    cout<<stack<<endl;
-
-    stack.pop( discs[0]);
-    cout<<stack<<endl;
-
-    cout<<"normal:"<< discs[0] << endl;
-    cout<<"reverse:"<< reverse(discs[0]) << endl;
-    cout<<"rotations:"<< all_rotations(discs[0]) << endl;
-    */
+    //cout<<stack<<endl;
     solve(stack, discs);
 }
