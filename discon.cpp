@@ -91,7 +91,7 @@ public:
             {
                 if (levels[y][i] == 'T')
                 {
-                    int up3 = min(y+3,(int)(levels.size()));
+                    int up3 = y+3;
                     for (int a=y; a<up3; a++)
                         levels[a][i] = '.';
                 }   
@@ -155,11 +155,11 @@ void try_disc_recursive(Stack& stack,
                     const vector< vector< vector<bool>>>& disc_options, 
                     vector<bool>& disc_used)
 {
-    //cout<<"disc:"<<disc<<endl;
+    //cout<<"disc:"<<disc<<'\n';
     if (stack.does_fit(disc))
     {
         bool valid = stack.push(disc);
-        //cout<<stack<<endl;
+        //cout<<stack<<'\n';
         
         if (valid)
             solve_recursive(stack, discs, disc_options, disc_used);
@@ -175,7 +175,7 @@ void solve_recursive(Stack& stack,
 {
     if (stack.is_full())
     {
-        cout<<"solution:"<<endl<<stack<<endl;
+        cout<<"solution:"<<'\n'<<stack<<'\n';
         return;
     }
     for (int i=0;i<(int)(disc_options.size());i++)
@@ -215,8 +215,8 @@ void solve(Stack& stack, const vector< vector<bool> >& discs)
     vector< bool> disc_used(discs.size(), false);
     /*for (vector< vector<bool>> options : disc_options)
     {
-        cout<<"===================="<<endl;
-        cout<<options<<endl;
+        cout<<"===================="<<'\n';
+        cout<<options<<'\n';
     }
     */
     solve_recursive(stack, discs, disc_options, disc_used);
@@ -238,8 +238,8 @@ int main()
         {0,0,0,0,0,1},
         {0,0,1,0,0,1},
         };
-    //cout<< discs << endl;
+    //cout<< discs << '\n';
     Stack stack((int)(discs.size()));
-    //cout<<stack<<endl;
+    //cout<<stack<<'\n';
     solve(stack, discs);
 }
